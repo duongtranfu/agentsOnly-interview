@@ -25,9 +25,9 @@ const autocompleteService = { current: null };
 export const AddressLookup = ({
   onChange,
   onBlur,
+  value,
   ...otherProps
 }) => {
-  const [value, setValue] = React.useState(otherProps.value ?? '');
   const [inputValue, setInputValue] = React.useState("");
   const [options, setOptions] = React.useState([]);
 
@@ -38,12 +38,6 @@ export const AddressLookup = ({
       }, 200),
     []
   );
-
-  React.useEffect(() => {
-    if (!otherProps.value) {
-      setValue('');
-    }
-  }, [otherProps.value]);
 
   React.useEffect(() => {
     let active = true;
@@ -101,7 +95,6 @@ export const AddressLookup = ({
         onBlur={onBlur}
         onChange={(event, newValue) => {
           setOptions(newValue ? [newValue, ...options] : options);
-          setValue(newValue);
           onChange(newValue.description);
         }}
         onInputChange={(event, newInputValue) => {
@@ -118,12 +111,14 @@ export const AddressLookup = ({
                 disableUnderline: true,
                 ...params.InputProps
               }}
+              value={value}
+              onChange={e => onChange(e.target.value)}
               {...otherProps} />
           )
         }}
         renderOption={(props, option) => {
           const matches =
-            option.structured_formatting.main_text_matched_substrings;
+            option?.structured_formatting?.main_text_matched_substrings;
 
           return (
             <li {...props}>
@@ -147,7 +142,7 @@ export const AddressLookup = ({
                   ))}
 
                   <Typography variant="body2" color="text.secondary">
-                    {option.structured_formatting.secondary_text}
+                    {option?.structured_formatting?.secondary_text}
                   </Typography>
                 </Grid>
               </Grid>

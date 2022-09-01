@@ -9,3 +9,4 @@
 - I will validate form On value Changing instead of onBlur, then I will use debounce for each field of form
 - The top green message area will be a result component, it can show a success message in green background or a failed red failure in red background
 - The top green message area should has close button
+- Find out another form supporter library, Formik is good, but other developers will take time to read formik code in Referral.js. I need a more clear and easier form supporter library.
