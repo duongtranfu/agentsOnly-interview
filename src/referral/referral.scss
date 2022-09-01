@@ -1,0 +1,62 @@
+@use '../commonColor.scss' as color;
+
+.referral {
+  height: 100%;
+  p {
+    color: color.$normal-text-color;
+    font-weight: 500;
+    margin: 0;
+  }
+  .header {
+    height: 196px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+      line-height: 40px;
+    }
+    .title {
+      font-size: 40px;
+    }
+    .subtitle {
+      font-size: 30px;
+    }
+  }
+  .messageBar {
+    background-color: #cde7ed;
+    height: 47px;
+    display: flex;
+    justify-content: center;
+    .contentMessage {
+      line-height: 47px;
+      border-radius: 0px 0px 34.5px 34.5px;
+      background-color: #25A575;
+      padding: 0 23px;
+      color: #FFFFFF;
+    }
+  }
+  .body {
+    background: #CDE7ED;
+    padding: 34px 249px;
+    p {
+      line-height: 32px;
+    }
+    .information {
+      text-align: center;
+      .title {
+        font-size: 24px;
+      }
+      .subtitle {
+        font-size: 20px;
+      }
+      margin-bottom: 28px;
+    }
+    .addAnotherReferralWrapper {
+      text-align: center;
+    }
+    .submitReferralsWrapper {
+      margin-top: 40px;
+    }
+  }
+}
